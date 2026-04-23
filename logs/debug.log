@@ -939,3 +939,2760 @@
     join
         dbo.users u1_0 
             on u1_0.user_id=s1_0.user_id
+2026-04-23 18:13:23 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:13:45 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:13:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:13:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 18:13:46 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 18:13:46 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 18:15:25 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:15:25 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 18:16:17 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:16:17 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 18:16:34 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:16:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 18:21:37 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 18:21:38 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 19:45:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 19:45:51 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 19:46:23 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 19:46:23 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 19:46:23 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 19:46:23 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 19:46:23 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 19:46:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 19:46:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    select
+        s1_0.student_id,
+        s1_0.address_id,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id 
+    from
+        dbo.students s1_0 
+    where
+        s1_0.student_id=?
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    where
+        c1_0.course_id=?
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        top (?) cr1_0.id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        count_big(cr1_0.id) 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        c1_0.course_id=? 
+        and cr1_0.registration_status=?
+2026-04-23 19:48:05 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.CourseRegistration */insert 
+    into
+        dbo.course_registrations (course_id, created_at, last_updated_at, registration_status, student_id) 
+    values
+        (?, ?, ?, ?, ?)
+2026-04-23 20:01:19 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:01:19 [DEBUG] org.hibernate.SQL - 
+    select
+        s1_0.student_id,
+        s1_0.address_id,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id 
+    from
+        dbo.students s1_0 
+    where
+        s1_0.student_id=?
+2026-04-23 20:01:19 [DEBUG] org.hibernate.SQL - 
+    select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    where
+        c1_0.course_id=?
+2026-04-23 20:01:19 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        top (?) cr1_0.id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:02:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:02:46 [DEBUG] org.hibernate.SQL - 
+    select
+        s1_0.student_id,
+        s1_0.address_id,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id 
+    from
+        dbo.students s1_0 
+    where
+        s1_0.student_id=?
+2026-04-23 20:02:46 [DEBUG] org.hibernate.SQL - 
+    select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    where
+        c1_0.course_id=?
+2026-04-23 20:02:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        top (?) cr1_0.id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    select
+        s1_0.student_id,
+        s1_0.address_id,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id 
+    from
+        dbo.students s1_0 
+    where
+        s1_0.student_id=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    where
+        c1_0.course_id=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        top (?) cr1_0.id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        count_big(cr1_0.id) 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        c1_0.course_id=? 
+        and cr1_0.registration_status=?
+2026-04-23 20:02:55 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.CourseRegistration */insert 
+    into
+        dbo.course_registrations (course_id, created_at, last_updated_at, registration_status, student_id) 
+    values
+        (?, ?, ?, ?, ?)
+2026-04-23 20:03:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:03:46 [DEBUG] org.hibernate.SQL - 
+    /* update
+        CourseRegistration r 
+    set
+        r.registrationStatus = :status 
+    where
+        r.student.studentId = :studentId 
+        and r.course.courseId = :courseId */ update cr1_0 
+    set
+        registration_status=? 
+    from
+        dbo.course_registrations cr1_0 
+    where
+        cr1_0.student_id=? 
+        and cr1_0.course_id=?
+2026-04-23 20:03:58 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:03:59 [DEBUG] org.hibernate.SQL - 
+    /* update
+        CourseRegistration r 
+    set
+        r.registrationStatus = :status 
+    where
+        r.student.studentId = :studentId 
+        and r.course.courseId = :courseId */ update cr1_0 
+    set
+        registration_status=? 
+    from
+        dbo.course_registrations cr1_0 
+    where
+        cr1_0.student_id=? 
+        and cr1_0.course_id=?
+2026-04-23 20:03:59 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        cr1_0.id,
+        cr1_0.course_id,
+        cr1_0.created_at,
+        cr1_0.last_updated_at,
+        cr1_0.registration_status,
+        cr1_0.student_id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:12:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:12:46 [DEBUG] org.hibernate.SQL - 
+    select
+        s1_0.student_id,
+        s1_0.address_id,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id 
+    from
+        dbo.students s1_0 
+    where
+        s1_0.student_id=?
+2026-04-23 20:12:46 [DEBUG] org.hibernate.SQL - 
+    select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    where
+        c1_0.course_id=?
+2026-04-23 20:12:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        top (?) cr1_0.id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:13:47 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:13:47 [DEBUG] org.hibernate.SQL - 
+    /* update
+        CourseRegistration r 
+    set
+        r.registrationStatus = :status 
+    where
+        r.student.studentId = :studentId 
+        and r.course.courseId = :courseId */ update cr1_0 
+    set
+        registration_status=? 
+    from
+        dbo.course_registrations cr1_0 
+    where
+        cr1_0.student_id=? 
+        and cr1_0.course_id=?
+2026-04-23 20:13:47 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        cr1_0.id,
+        cr1_0.course_id,
+        cr1_0.created_at,
+        cr1_0.last_updated_at,
+        cr1_0.registration_status,
+        cr1_0.student_id 
+    from
+        dbo.course_registrations cr1_0 
+    left join
+        dbo.students s1_0 
+            on s1_0.student_id=cr1_0.student_id 
+    left join
+        dbo.courses c1_0 
+            on c1_0.course_id=cr1_0.course_id 
+    where
+        s1_0.student_id=? 
+        and c1_0.course_id=?
+2026-04-23 20:35:32 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:35:33 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:35:33 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 20:35:33 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 20:35:33 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 20:35:51 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:35:51 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        s1_0.student_id,
+        a1_0.address_id,
+        a1_0.address_name,
+        s1_0.identity_type,
+        s1_0.is_active,
+        s1_0.national_id,
+        s1_0.passport_number,
+        s1_0.user_id,
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.students s1_0 
+    left join
+        dbo.address a1_0 
+            on a1_0.address_id=s1_0.address_id 
+    join
+        dbo.users u1_0 
+            on u1_0.user_id=s1_0.user_id
+2026-04-23 20:36:13 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:36:14 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 20:59:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:59:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 20:59:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 20:59:35 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 20:59:35 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 21:00:17 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:00:17 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        COUNT(r.id) 
+    FROM
+        Course c 
+    LEFT JOIN
+        CourseRegistration r 
+            ON r.course.courseId = c.courseId 
+    GROUP BY
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName */ select
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name,
+            count_big(cr1_0.id) 
+        from
+            dbo.courses c1_0 
+        left join
+            dbo.course_registrations cr1_0 
+                on cr1_0.course_id=c1_0.course_id 
+        join
+            dbo.course_departments cd1_0 
+                on cd1_0.course_department_id=c1_0.course_department_id 
+        group by
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name
+2026-04-23 21:06:11 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:06:11 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        COUNT(r.id) 
+    FROM
+        Course c 
+    LEFT JOIN
+        CourseRegistration r 
+            ON r.course.courseId = c.courseId 
+    GROUP BY
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName */ select
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name,
+            count_big(cr1_0.id) 
+        from
+            dbo.courses c1_0 
+        left join
+            dbo.course_registrations cr1_0 
+                on cr1_0.course_id=c1_0.course_id 
+        join
+            dbo.course_departments cd1_0 
+                on cd1_0.course_department_id=c1_0.course_department_id 
+        group by
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name
+2026-04-23 21:13:59 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:13:59 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:14:00 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 21:14:00 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 21:14:00 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 21:14:11 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:14:12 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        COUNT(r.id) 
+    FROM
+        Course c 
+    LEFT JOIN
+        CourseRegistration r 
+            ON r.course.courseId = c.courseId 
+    GROUP BY
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName */ select
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name,
+            count_big(cr1_0.id) 
+        from
+            dbo.courses c1_0 
+        left join
+            dbo.course_registrations cr1_0 
+                on cr1_0.course_id=c1_0.course_id 
+        join
+            dbo.course_departments cd1_0 
+                on cd1_0.course_department_id=c1_0.course_department_id 
+        group by
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name
+2026-04-23 21:15:15 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:15:15 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        COUNT(r.id) 
+    FROM
+        Course c 
+    LEFT JOIN
+        CourseRegistration r 
+            ON r.course.courseId = c.courseId 
+    GROUP BY
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName */ select
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name,
+            count_big(cr1_0.id) 
+        from
+            dbo.courses c1_0 
+        left join
+            dbo.course_registrations cr1_0 
+                on cr1_0.course_id=c1_0.course_id 
+        join
+            dbo.course_departments cd1_0 
+                on cd1_0.course_department_id=c1_0.course_department_id 
+        group by
+            c1_0.course_id,
+            c1_0.course_name,
+            c1_0.course_code,
+            c1_0.capacity,
+            cd1_0.course_department_name
+2026-04-23 21:50:42 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:50:43 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:50:43 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 21:50:43 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 21:50:43 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 21:51:27 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 21:51:28 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 22:21:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:21:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:21:51 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 22:21:51 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 22:21:51 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 22:23:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:28:02 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:28:54 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:28:54 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:28:55 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 22:28:55 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 22:28:55 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 22:29:12 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:30:50 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:30:51 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:32:48 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:34:23 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:34:23 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:36:40 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:36:40 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:36:41 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        rt1_0.user_id 
+    from
+        dbo.refresh_tokens rt1_0 
+    where
+        rt1_0.user_id=?
+2026-04-23 22:36:41 [DEBUG] org.hibernate.SQL - 
+    /* delete for com.academic.portal.entity.RefreshToken */delete 
+    from
+        dbo.refresh_tokens 
+    where
+        id=?
+2026-04-23 22:36:41 [DEBUG] org.hibernate.SQL - 
+    /* insert for
+        com.academic.portal.entity.RefreshToken */insert 
+    into
+        dbo.refresh_tokens (expiry_date, token, user_id) 
+    values
+        (?, ?, ?)
+2026-04-23 22:37:11 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:37:11 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        c1_0.course_id,
+        c1_0.capacity,
+        c1_0.course_code,
+        c1_0.course_department_id,
+        cd1_0.course_department_id,
+        cd1_0.course_department_name,
+        c1_0.course_name,
+        c1_0.created_at,
+        c1_0.created_by,
+        c1_0.is_active,
+        c1_0.last_updated_at,
+        c1_0.last_updated_by 
+    from
+        dbo.courses c1_0 
+    join
+        dbo.course_departments cd1_0 
+            on cd1_0.course_department_id=c1_0.course_department_id
+2026-04-23 22:39:58 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:41:25 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:41:26 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:42:35 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:42:35 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:45:46 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:45:46 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:47:42 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:47:42 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 22:56:33 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 22:56:33 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
+2026-04-23 23:01:51 [DEBUG] org.hibernate.SQL - 
+    /* <criteria> */ select
+        u1_0.user_id,
+        u1_0.created_at,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.gender,
+        u1_0.is_active,
+        u1_0.is_deleted,
+        u1_0.last_name,
+        u1_0.mobile_number,
+        u1_0.password,
+        rt1_0.user_id,
+        rt1_0.id,
+        rt1_0.expiry_date,
+        rt1_0.token,
+        u1_0.role,
+        u1_0.updated_at,
+        u1_0.user_name 
+    from
+        dbo.users u1_0 
+    left join
+        dbo.refresh_tokens rt1_0 
+            on u1_0.user_id=rt1_0.user_id 
+    where
+        u1_0.user_name=?
+2026-04-23 23:01:51 [DEBUG] org.hibernate.SQL - 
+    /* SELECT
+        c.courseId,
+        c.courseName,
+        c.courseCode,
+        c.capacity,
+        c.courseDepartment.courseDepartmentName,
+        SUM(CASE 
+            WHEN r.registrationStatus = 1 
+                THEN 1 
+            ELSE 0 
+    END) 
+FROM
+    Course c 
+LEFT JOIN
+    CourseRegistration r 
+        ON r.course.courseId = c.courseId 
+WHERE
+    (
+        :departmentId IS NULL 
+        OR c.courseDepartment.courseDepartmentId = :departmentId
+    ) 
+GROUP BY
+    c.courseId,
+    c.courseName,
+    c.courseCode,
+    c.capacity,
+    c.courseDepartment.courseDepartmentName */ select
+        c1_0.course_id,
+        c1_0.course_name,
+        c1_0.course_code,
+        c1_0.capacity,
+        cd1_0.course_department_name,
+        sum(case 
+            when cr1_0.registration_status=1 
+                then 1 
+            else 0 
+    end) 
+from
+    dbo.courses c1_0 
+left join
+    dbo.course_registrations cr1_0 
+        on cr1_0.course_id=c1_0.course_id 
+join
+    dbo.course_departments cd1_0 
+        on cd1_0.course_department_id=c1_0.course_department_id 
+where
+    (
+        ? is null 
+        or c1_0.course_department_id=?
+    ) 
+group by
+    c1_0.course_id,
+    c1_0.course_name,
+    c1_0.course_code,
+    c1_0.capacity,
+    cd1_0.course_department_name
