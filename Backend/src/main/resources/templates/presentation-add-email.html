@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{ font-family: Montserrat, sans-serif; background:#f4f4f4; }
+        .container{ width:600px; margin:auto; background:white; border-radius:8px; overflow:hidden; font-family: Montserrat, sans-serif; }
+        .header{ background:#b30000; color:white; padding:10px; text-align:center; font-size:18px; font-weight:bold; font-family: Montserrat, sans-serif; }
+        .content{ padding:10px; color:#333; }
+        .info-box{ background:#f7f7f7; padding:5px; border-left:5px solid #b30000; margin-top:5px; }
+        .item-list li{ margin-bottom:8px; color:#555; padding:2px 0; border-bottom:1px dotted #eee; }
+        .item-list li:last-child{ border-bottom:none; }
+        .button{ display:inline-block; padding:15px 20px; color:#ffffff; text-decoration:none; border-radius:5px; margin-top:20px; background-color:#ec0000; font-weight:bold; font-family: Montserrat, sans-serif; }
+        .footer{ background:#e0e0e0; padding:15px; text-align:center; color:#555; font-size:12px; font-family: Montserrat, sans-serif; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header"> ETC KPI Management System </div>
+    <div class="content">
+        <p>Dears,</p>
+        <p style="text-indent: 30px;">
+            Kindly be informed that Eng. <b><span th:text="${name}"></span></b> has uploaded presentation of
+            <b><span th:text="${departmentName} "></span> </b> department.
+        </p>
+        <div class="info-box">
+            <p><b>for month:</b> <span th:text="${month} + '/' + ${year}"></span></p>
+        </div>
+        <p> You can open the file from the below link.</p>
+
+        <a class="button" th:href="${dashboardUrl}"> Open Dashboard </a>
+
+    </div>
+    <div class="footer"> Elsewedy Telecom Cables - KPI System </div>
+</div>
+</body>
+</html>
