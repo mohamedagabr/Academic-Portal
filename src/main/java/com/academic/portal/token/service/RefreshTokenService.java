@@ -7,4 +7,6 @@ public interface RefreshTokenService {
      RefreshToken createRefreshToken(User user);
     boolean validateRefreshToken(String token);
     void deleteByUser(User user);
+
+    void deleteByUsername(String username);
 }

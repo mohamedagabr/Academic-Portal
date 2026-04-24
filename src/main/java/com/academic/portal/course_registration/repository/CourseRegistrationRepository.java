@@ -29,7 +29,8 @@ public interface CourseRegistrationRepository extends JpaRepository<CourseRegist
     @Modifying
     @Query("""
     update CourseRegistration r
-    set r.registrationStatus = :status
+    set r.registrationStatus = :status,
+        r.lastUpdatedAt = CURRENT_TIMESTAMP
     where r.student.studentId = :studentId
     and r.course.courseId = :courseId
     """)

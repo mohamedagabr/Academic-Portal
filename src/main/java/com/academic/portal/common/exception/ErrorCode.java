@@ -25,6 +25,9 @@ public enum ErrorCode {
     ACCESS_DENIED(HttpStatus.FORBIDDEN),
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED),
 
+    // Session
+    SESSION_EXPIRED(HttpStatus.UNAUTHORIZED),
+
     // Students
     STUDENT_NOT_FOUND(HttpStatus.NOT_FOUND),
     INVALID_NATIONAL_ID(HttpStatus.BAD_REQUEST),

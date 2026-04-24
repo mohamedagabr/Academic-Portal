@@ -7,6 +7,7 @@ import com.academic.portal.entity.Address;
 import com.academic.portal.entity.Student;
 import com.academic.portal.entity.User;
 import com.academic.portal.enums.IdentityType;
+import com.academic.portal.enums.Role;
 import com.academic.portal.student.dto.StudentRequestDto;
 import com.academic.portal.student.dto.StudentResponseDto;
 import com.academic.portal.student.mapper.StudentMapper;
@@ -52,10 +53,12 @@ public class StudentService {
 
         Student student = new Student();
         student.setUser(user);
+        user.setRole(Role.STUDENT);
         student.setAddress(address);
         student.setIdentityType(dto.getIdentityType());
         student.setNationalId(dto.getNationalId());
         student.setPassportNumber(dto.getPassportNumber());
+
 
         Student saved = studentRepository.save(student);
 

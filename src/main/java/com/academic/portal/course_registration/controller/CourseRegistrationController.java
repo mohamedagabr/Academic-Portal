@@ -12,6 +12,7 @@ import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +25,7 @@ public class CourseRegistrationController {
 
 
     @PostMapping("/register")
+    @PreAuthorize("hasAnyRole('STUDENT','ADMIN','SUPER_ADMIN')")
     public ResponseEntity<ApiResponse<CourseRegistrationResponseDto>> register(
             @RequestBody @Valid CourseRegistrationRequestDto dto) {
 
@@ -37,6 +39,7 @@ public class CourseRegistrationController {
 
 
     @PutMapping("/cancel")
+    @PreAuthorize("hasAnyRole('STUDENT','ADMIN','SUPER_ADMIN')")
     public ResponseEntity<ApiResponse<CourseRegistrationResponseDto>> cancel(
             @RequestBody @Valid CourseRegistrationRequestDto dto) {
 

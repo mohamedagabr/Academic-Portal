@@ -4,7 +4,6 @@ public enum CourseRegistrationStatus {
 
 
     REGISTERED(1),
-    HOLD(2),
     CANCELED(0);
 
     private final int id ;

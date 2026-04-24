@@ -14,6 +14,7 @@ import com.academic.portal.security.JwtService;
 import com.academic.portal.token.service.RefreshTokenService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.CacheManager;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -28,25 +29,29 @@ public class AuthService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final RefreshTokenService refreshTokenService;
+    private final CacheManager cacheManager;
 
-//    public AuthResponse register(AuthRequest request) {
-//
-//        userValidation(request);
-//        String rawPassword = request.getPassword(); // save password before hashing
-//
-//        User user = User.builder()
-//                .username(request.getUsername())
-//                .password(passwordEncoder.encode(request.getPassword()))
-//                .email(request.getEmail())
-//                .build();
-//
-//        userRepository.save(user);
-//
-//        String accessToken = jwtService.generateAccessToken(user);
-//        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
-//
-//        return buildAuthResponse(user, accessToken, refreshToken.getToken());
-//    }
+    public AuthResponse register(AuthRequest request) {
+
+        userValidation(request);
+
+        User user = User.builder()
+                .username(request.getUsername())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .mobileNumber(request.getMobileNumber())
+                .email(request.getEmail())
+                .gender(request.getGender())
+                .build();
+
+        userRepository.save(user);
+
+        String accessToken = jwtService.generateAccessToken(user);
+        RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+
+        return buildAuthResponse(user, accessToken, refreshToken.getToken());
+    }
 
     public AuthResponse login(LoginDto dto) {
 
@@ -70,6 +75,12 @@ public class AuthService {
 
         String accessToken = jwtService.generateAccessToken(user);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
+
+
+        var cache = cacheManager.getCache("sessions");
+        if (cache != null) {
+            cache.put(user.getUsername(), System.currentTimeMillis());
+        }
 
         return buildAuthResponse(user, accessToken, refreshToken.getToken());
     }
@@ -104,10 +115,13 @@ public class AuthService {
         String token = authHeader.substring(7);
         String username = jwtService.extractUsername(token);
 
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new BusinessException(ErrorCode.USER_NOT_FOUND));
-
-        refreshTokenService.deleteByUser(user);
+        // remove session
+        var cache = cacheManager.getCache("sessions");
+        if (cache != null) {
+            cache.evict(username);
+        }
+        // remove refresh tokens
+        refreshTokenService.deleteByUsername(username);
     }
 
     private void userValidation(AuthRequest request) {
@@ -134,7 +148,7 @@ public class AuthService {
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .email(user.getEmail())
-                .role(user.getRole())
+                .mobileNumber(user.getMobileNumber())
                 .build();
     }
 }

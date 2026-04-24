@@ -22,17 +22,17 @@ public class AuthController {
 
     private final AuthService authService;
 
-//    @Operation(summary = "Register user", security = @SecurityRequirement(name = "none"))
-//    @PostMapping("/register")
-//    public ResponseEntity<ApiResponse<AuthResponse>> register(@Valid @RequestBody AuthRequest request) {
-//
-//        return ResponseEntity.ok(
-//                ApiResponse.success(
-//                        ResponseCode.USER_REGISTERED,
-//                        authService.register(request)
-//                )
-//        );
-//    }
+    @Operation(summary = "Register user", security = @SecurityRequirement(name = "none"))
+    @PostMapping("/register")
+    public ResponseEntity<ApiResponse<AuthResponse>> register(@Valid @RequestBody AuthRequest request) {
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ResponseCode.USER_REGISTERED,
+                        authService.register(request)
+                )
+        );
+    }
 
     @Operation(summary = "Login user", security = @SecurityRequirement(name = "none"))
     @PostMapping("/login")
@@ -68,5 +68,8 @@ public class AuthController {
 //                ApiResponse.success(ResponseCode.LOGOUT_SUCCESS, null)
 //        );
 //    }
-}
+
+
+
+ }
 

@@ -19,6 +19,8 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class CourseRegistrationService {
@@ -29,7 +31,9 @@ public class CourseRegistrationService {
     private final StudentRepository studentRepository;
     private final CourseRepository courseRepository;
 
-//    @CacheEvict(value = "course_schedule", allEntries = true)
+
+    @Transactional
+    @CacheEvict(value = "course_schedule", allEntries = true)
     public CourseRegistrationResponseDto register(CourseRegistrationRequestDto dto) {
 
         // check student exists
@@ -45,15 +49,23 @@ public class CourseRegistrationService {
         Course course = courseRepository.findById(dto.getCourseId())
                 .orElseThrow(() -> new BusinessException(ErrorCode.COURSE_NOT_FOUND));
 
-        // check already registered
-        boolean exists = courseRegistrationRepository
-                .existsByStudent_StudentIdAndCourse_CourseId(
+        Optional<CourseRegistration> existing = courseRegistrationRepository
+                .findByStudent_StudentIdAndCourse_CourseId(
                         dto.getStudentId(),
                         dto.getCourseId()
                 );
 
-        if (exists) {
-            throw new BusinessException(ErrorCode.COURSE_ALREADY_REGISTERED);
+
+        if (existing.isPresent()) {
+
+            CourseRegistration reg = existing.get();
+
+            if (reg.getRegistrationStatus() == CourseRegistrationStatus.REGISTERED) {
+                throw new BusinessException(ErrorCode.COURSE_ALREADY_REGISTERED);
+            }
+
+            reg.setRegistrationStatus(CourseRegistrationStatus.REGISTERED);
+            return courseRegistrationMapper.toDto(reg);
         }
 
         // check capacity
@@ -81,23 +93,11 @@ public class CourseRegistrationService {
     }
 
 
+
     @Transactional
-//    @CacheEvict(value = "course_schedule", allEntries = true)
+    @CacheEvict(value = "course_schedule", allEntries = true)
     public CourseRegistrationResponseDto cancel(CourseRegistrationRequestDto dto) {
 
-        // execute update
-        int updatedRows = courseRegistrationRepository.cancelRegistration(
-                dto.getStudentId(),
-                dto.getCourseId(),
-                CourseRegistrationStatus.CANCELED
-        );
-
-        if (updatedRows == 0) {
-            throw new BusinessException(ErrorCode.REGISTRATION_NOT_FOUND);
-        }
-
-
-        // get registration after update
         CourseRegistration registration = courseRegistrationRepository
                 .findByStudent_StudentIdAndCourse_CourseId(
                         dto.getStudentId(),
@@ -105,34 +105,15 @@ public class CourseRegistrationService {
                 )
                 .orElseThrow(() -> new BusinessException(ErrorCode.REGISTRATION_NOT_FOUND));
 
-        return courseRegistrationMapper.toDto(registration);
+        if (registration.getRegistrationStatus() == CourseRegistrationStatus.CANCELED) {
+            throw new BusinessException(ErrorCode.ALREADY_CANCELED);
+        }
+
+        registration.setRegistrationStatus(CourseRegistrationStatus.CANCELED);
+
+        CourseRegistration updated = courseRegistrationRepository.save(registration);
+
+        return courseRegistrationMapper.toDto(updated);
     }
-
-
-//    public CourseRegistrationResponseDto cancel(CourseRegistrationRequestDto dto) {
-//
-//        // 1. get registration
-//        CourseRegistration registration = courseRegistrationRepository
-//                .findByStudent_StudentIdAndCourse_CourseId(
-//                        dto.getStudentId(),
-//                        dto.getCourseId()
-//                )
-//                .orElseThrow(() -> new BusinessException(ErrorCode.REGISTRATION_NOT_FOUND));
-//
-//        // 2. check already canceled
-//        if (registration.getRegistrationStatus() == CourseRegistrationStatus.CANCELED) {
-//            throw new BusinessException(ErrorCode.ALREADY_CANCELED);
-//        }
-//
-//        // 3. update status
-//        registration.setRegistrationStatus(CourseRegistrationStatus.CANCELED);
-//
-//        // (اختياري) update timestamp لو مش auto
-//        // registration.setLastUpdatedAt(LocalDateTime.now());
-//
-//        CourseRegistration updated = courseRegistrationRepository.save(registration);
-//
-//        return courseRegistrationMapper.toDto(updated);
-//    }
 
 }

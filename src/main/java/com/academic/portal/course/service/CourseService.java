@@ -22,6 +22,8 @@ public class CourseService {
     @Cacheable("courses")
     public List<CourseDepartmentResponseDto> getAllCourses() {
 
+        System.out.println("DB CALL - getAllCourses() EXECUTED");
+
         List<Course> courses = courseRepository.findAll();
 
         return courses.stream()
