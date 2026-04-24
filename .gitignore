@@ -5,11 +5,9 @@ target/
 !**/src/test/**/target/
 
 # Logs
-logs/
-debug.log
-warn.log
-error.log
 *.log
+logs/
+.logs/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

@@ -37,9 +37,9 @@ CREATE  TABLE academic_portal.dbo.users (
                                             created_at           datetime2  CONSTRAINT DF_users_created_at DEFAULT getdate()    NOT NULL,
                                             updated_at           datetime2      NULL,
                                             CONSTRAINT pk_users PRIMARY KEY CLUSTERED ( user_id  asc ) ,
-                                            CONSTRAINT uq_users_mobile UNIQUE ( mobile_number  asc ) ,
+                                            CONSTRAINT uq_users_username UNIQUE ( user_name  asc ) ,
                                             CONSTRAINT uq_users_email UNIQUE ( email  asc ) ,
-                                            CONSTRAINT uq_users_username UNIQUE ( user_name  asc )
+                                            CONSTRAINT uq_users_mobile UNIQUE ( mobile_number  asc )
 );
 GO
 
@@ -55,8 +55,8 @@ CREATE  TABLE academic_portal.dbo.courses (
                                               last_updated_at      datetime2      NULL,
                                               is_active            int  CONSTRAINT DF_courses_is_active DEFAULT 1    NOT NULL,
                                               CONSTRAINT pk_courses PRIMARY KEY CLUSTERED ( course_id  asc ) ,
-                                              CONSTRAINT uq_courses_code UNIQUE ( course_code  asc ) ,
                                               CONSTRAINT uq_courses_name UNIQUE ( course_name  asc ) ,
+                                              CONSTRAINT uq_courses_code UNIQUE ( course_code  asc ) ,
                                               CONSTRAINT chk_courses_capacity CHECK ( [capacity]>(0) )
     );
 GO
