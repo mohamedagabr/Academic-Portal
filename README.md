@@ -67,3 +67,7 @@ Design Notes
     JWT security filter
     Stateless backend design
     Oracle-compatible timestamp handling
+
+
+ERD
+![ERD](src/main/resources/images/ERD.png)
