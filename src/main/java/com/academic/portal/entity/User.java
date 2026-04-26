@@ -7,67 +7,62 @@ import lombok.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ArrayList;
+
+@Entity
+@Table(name = "USERS")
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
-@Entity
-@Table(name = "users", schema = "dbo",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "uq_users_username", columnNames = {"user_name"}),
-                @UniqueConstraint(name = "uq_users_mobile", columnNames = {"mobile_number"}),
-                @UniqueConstraint(name = "uq_users_email", columnNames = {"email"})
-        })
 @Builder
 @ToString(exclude = "refreshTokens")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    @SequenceGenerator(
+            name = "user_seq",
+            sequenceName = "SEQ_USERS",
+            allocationSize = 1
+    )
+    @Column(name = "USER_ID")
     private Integer userId;
 
-    @Column(name = "user_name", nullable = false, length = 30)
+    @Column(name = "USER_NAME", nullable = false, length = 30, unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false, length = 255)
+    @Column(name = "PASSWORD", nullable = false, length = 255)
     private String password;
 
-    @Column(name = "first_name", nullable = false, length = 30)
+    @Column(name = "FIRST_NAME", nullable = false, length = 30)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 30)
+    @Column(name = "LAST_NAME", nullable = false, length = 30)
     private String lastName;
 
-    @Column(name = "mobile_number", nullable = false, length = 11)
+    @Column(name = "MOBILE_NUMBER", nullable = false, length = 11, unique = true)
     private String mobileNumber;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "EMAIL", nullable = false, length = 50, unique = true)
     private String email;
 
-
-    @Column(name = "gender", nullable = false)
+    @Column(name = "GENDER", nullable = false)
     private Gender gender;
 
-
-    @Column(name = "role", nullable = false)
+    @Column(name = "ROLE", nullable = false)
     private Role role;
 
-
-    @Column(name = "is_active", nullable = false)
+    @Column(name = "IS_ACTIVE", nullable = false)
     private ActiveStatus isActive;
 
-
-    @Column(name = "is_deleted", nullable = false)
+    @Column(name = "IS_DELETED", nullable = false)
     private DeletedFlag isDeleted;
 
+    @Column(name = "CREATED_AT", nullable = false)
+    private LocalDateTime createdAt;
 
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt ;
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 
-    @Column(name = "updated_at", nullable = false)
-    private LocalDateTime updatedAt ;
-
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @Builder.Default
     private List<RefreshToken> refreshTokens = new ArrayList<>();
 
@@ -84,5 +79,4 @@ public class User {
     private void preUpdate() {
         updatedAt = LocalDateTime.now();
     }
-
 }

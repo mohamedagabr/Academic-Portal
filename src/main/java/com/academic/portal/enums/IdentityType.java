@@ -2,7 +2,7 @@ package com.academic.portal.enums;
 
 public enum IdentityType {
 
-    NATIONAL_ID(1  ),
+    NATIONAL_ID(1),
     PASSPORT(2);
 
     private final int id;

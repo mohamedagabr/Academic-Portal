@@ -9,43 +9,47 @@ import lombok.*;
 @NoArgsConstructor @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "students", schema = "dbo",
+@Table(name = "STUDENTS",
         uniqueConstraints = {
-                @UniqueConstraint(name = "uq_students_user", columnNames = {"user_id"})
+                @UniqueConstraint(name = "UQ_STUDENTS_USER", columnNames = {"USER_ID"})
         })
+@ToString(exclude = {"user", "address"})
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "student_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_seq")
+    @SequenceGenerator(
+            name = "student_seq",
+            sequenceName = "SEQ_STUDENTS",
+            allocationSize = 1
+    )
+    @Column(name = "STUDENT_ID")
     private Integer studentId;
 
-    @Column(name = "national_id", length = 14)
+    @Column(name = "NATIONAL_ID", length = 14)
     private String nationalId;
 
-    @Column(name = "passport_number", length = 20)
+    @Column(name = "PASSPORT_NUMBER", length = 20)
     private String passportNumber;
 
-    @Column(name = "identity_type",nullable = false)
+    @Column(name = "IDENTITY_TYPE", nullable = false)
     private IdentityType identityType;
 
-    @Column(name = "is_active", nullable = false)
+    @Column(name = "IS_ACTIVE", nullable = false)
     private ActiveStatus isActive;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
+    @JoinColumn(name = "USER_ID", nullable = false, unique = true,
+            foreignKey = @ForeignKey(name = "FK_STUDENTS_USER"))
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "address_id")
+    @JoinColumn(name = "ADDRESS_ID",
+            foreignKey = @ForeignKey(name = "FK_STUDENTS_ADDRESS"))
     private Address address;
-
 
     @PrePersist
     private void prePersist() {
         if (isActive == null) isActive = ActiveStatus.ACTIVE;
     }
-
-
-
 }

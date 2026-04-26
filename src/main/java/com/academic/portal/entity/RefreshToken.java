@@ -1,32 +1,37 @@
 package com.academic.portal.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
 
 @Entity
-@Data
-@Table(name = "refresh_tokens", schema = "dbo")
+@Getter
+@Setter
+@Table(name = "REFRESH_TOKENS")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class RefreshToken {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "refresh_seq")
+    @SequenceGenerator(
+            name = "refresh_seq",
+            sequenceName = "SEQ_REFRESH_TOKENS",
+            allocationSize = 1
+    )
+    @Column(name = "ID")
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 500)
+    @Column(name = "TOKEN", nullable = false, unique = true, length = 500)
     private String token;
 
-    @Column(name = "expiry_date")
+    @Column(name = "EXPIRY_DATE", nullable = false)
     private Instant expiryDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "USER_ID", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_REFRESH_TOKENS_USER"))
     private User user;
-
 }

@@ -20,7 +20,7 @@ public class JwtService {
                 .setSubject(user.getUsername())
                 .claim("role", user.getRole())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 120))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 5))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -29,7 +29,7 @@ public class JwtService {
         return Jwts.builder()
                 .setSubject(user.getUsername())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 7)) // 7 days
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 10))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -54,6 +54,9 @@ public class JwtService {
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
+    }
+    public Date extractExpiration(String token) {
+        return getClaims(token).getExpiration();
     }
 
 }

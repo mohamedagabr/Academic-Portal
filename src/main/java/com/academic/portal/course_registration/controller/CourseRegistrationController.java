@@ -79,15 +79,5 @@ public class CourseRegistrationController {
 
 
 
-//    @GetMapping("/schedule/pdf")
-//    public ResponseEntity<byte[]> downloadPdf() {
-//
-//        byte[] pdf = pdfService.generateCourseSchedulePdf();
-//
-//        return ResponseEntity.ok()
-//                .header("Content-Disposition", "attachment; filename=courses.pdf")
-//                .contentType(MediaType.APPLICATION_PDF)
-//                .body(pdf);
-//    }
 
 }

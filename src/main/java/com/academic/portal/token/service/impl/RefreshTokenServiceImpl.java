@@ -32,15 +32,16 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
             refreshTokenRepository.delete(existingToken.get());
             refreshTokenRepository.flush();
         }
-            String refreshJwt = jwtService.generateRefreshToken(user);
+        String refreshJwt = jwtService.generateRefreshToken(user);
 
-            RefreshToken refreshToken = RefreshToken.builder()
-                    .user(user)
-                    .token(refreshJwt)
-                    .expiryDate(Instant.now().plus(7, ChronoUnit.DAYS))
-                    .build();
-
-        user.getRefreshTokens().add(refreshToken);  // New
+        RefreshToken refreshToken = RefreshToken.builder()
+                .user(user)
+                .token(refreshJwt)
+//                .expiryDate(Instant.now().plus(10, ChronoUnit.MINUTES))
+                .expiryDate(jwtService.extractExpiration(refreshJwt).toInstant())
+                .build();
+        user.getRefreshTokens().clear();
+        user.getRefreshTokens().add(refreshToken);
         return refreshTokenRepository.save(refreshToken);
     }
 
@@ -56,11 +57,6 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         return true;
     }
 
-    @Override
-    @Transactional
-    public void deleteByUser(User user) {
-        refreshTokenRepository.deleteByUser(user);
-    }
 
     @Override
     @Transactional

@@ -28,6 +28,10 @@ public class StudentService {
     private final AddressRepository addressRepository;
     private final StudentMapper studentMapper;
 
+    public List<StudentResponseDto> getAllStudents() {
+        return studentMapper.toDtoList(studentRepository.findAll());
+    }
+
 
     @Transactional
     public StudentResponseDto addStudent(StudentRequestDto dto) {
@@ -41,12 +45,12 @@ public class StudentService {
 
         if (dto.getAddressName() != null && !dto.getAddressName().isBlank()) {
 
-            String name = dto.getAddressName().trim();
+            String addressName = dto.getAddressName().trim();
 
-            address = addressRepository.findByAddressName(name)
+            address = addressRepository.findByAddressName(addressName)
                     .orElseGet(() -> {
                         Address newAddress = new Address();
-                        newAddress.setAddressName(name);
+                        newAddress.setAddressName(addressName);
                         return addressRepository.save(newAddress);
                     });
         }
@@ -66,10 +70,6 @@ public class StudentService {
     }
 
 
-    public List<StudentResponseDto> getAllStudents() {
-        return studentMapper.toDtoList(studentRepository.findAll());
-    }
-
 
     private void validateIdentity(IdentityType type, String nationalId, String passportNumber) {
 
@@ -83,4 +83,5 @@ public class StudentService {
             }
         }
     }
+
 }

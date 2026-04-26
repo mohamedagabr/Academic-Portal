@@ -29,12 +29,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
-                                    FilterChain filterChain)
-            throws ServletException, IOException {
+                                    FilterChain filterChain) throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
-
-        // if no token, continue
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
@@ -43,91 +40,28 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         try {
             String token = authHeader.substring(7);
             String username = jwtService.extractUsername(token);
-
-            if (username != null &&
-                    SecurityContextHolder.getContext().getAuthentication() == null) {
-
-                UserDetails userDetails =
-                        customUserDetailsService.loadUserByUsername(username);
-
+            if (username !=null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
                 if (jwtService.isTokenValid(token, userDetails)) {
-
-                    var cache = cacheManager.getCache("sessions");
-
-                    if (cache == null) {
-                        unauthorized(response, ErrorCode.SESSION_EXPIRED.name());
-                        return;
-                    }
-
-                    var session = cache.get(username);
-
-                    System.out.println("SESSION CHECK FOR: " + username);
-                    System.out.println("CACHE VALUE: " + (session != null ? session.get() : null));
-
-                    if (session == null) {
-                        unauthorized(response, ErrorCode.SESSION_EXPIRED.name());
-                        return;
-                    }
-
-                    // refresh idle session
-                    cache.put(username, System.currentTimeMillis());
-
                     UsernamePasswordAuthenticationToken authToken =
-                            new UsernamePasswordAuthenticationToken(
-                                    userDetails,
-                                    null,
-                                    userDetails.getAuthorities()
-                            );
-
+                            new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authToken);
                 }
             }
-
             filterChain.doFilter(request, response);
 
         } catch (io.jsonwebtoken.ExpiredJwtException e) {
             unauthorized(response, ErrorCode.TOKEN_EXPIRED.name());
+            return;
         } catch (io.jsonwebtoken.JwtException e) {
             unauthorized(response, ErrorCode.INVALID_TOKEN.name());
+            return;
         } catch (Exception e) {
             unauthorized(response, ErrorCode.INVALID_TOKEN.name());
+            return;
         }
-    }
 
-//    @Override
-//    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-//
-//        String authHeader = request.getHeader("Authorization");
-//        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-//            filterChain.doFilter(request, response);
-//            return;
-//        }
-//
-//        try {
-//            String token = authHeader.substring(7);
-//            String username = jwtService.extractUsername(token);
-//            if (username !=null && SecurityContextHolder.getContext().getAuthentication() == null) {
-//                UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
-//                if (jwtService.isTokenValid(token, userDetails)) {
-//                    UsernamePasswordAuthenticationToken authToken =
-//                            new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-//                    SecurityContextHolder.getContext().setAuthentication(authToken);
-//                }
-//            }
-//            filterChain.doFilter(request, response);
-//
-//        } catch (io.jsonwebtoken.ExpiredJwtException e) {
-//            unauthorized(response, ErrorCode.TOKEN_EXPIRED.name());
-//            return;
-//        } catch (io.jsonwebtoken.JwtException e) {
-//            unauthorized(response, ErrorCode.INVALID_TOKEN.name());
-//            return;
-//        } catch (Exception e) {
-//            unauthorized(response, ErrorCode.INVALID_TOKEN.name());
-//            return;
-//        }
-//
-//    }
+    }
 
     private void unauthorized(HttpServletResponse response, String message) throws IOException {
         if (response.isCommitted()) return;

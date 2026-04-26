@@ -42,7 +42,6 @@ public class CourseSchedulePdfService {
             document.add(new Paragraph("Course Schedule Report", titleFont));
             document.add(new Paragraph(" "));
 
-//            Map<String, List<CourseScheduleReportDto>> data = groupByDepartment(departmentId);
             Map<String, List<CourseScheduleReportDto>> data =
                     getReport(departmentId)
                             .stream()
@@ -136,130 +135,6 @@ public class CourseSchedulePdfService {
 
         }).toList();
     }
-
-//    public List<CourseScheduleReportDto> getReport(Integer departmentId) {
-//
-//        List<Course> courses = (departmentId == null)
-//                ? courseRepository.findAll()
-//                : courseRepository.findByCourseDepartment_CourseDepartmentId(departmentId);
-//
-//        return courses.stream().map(course -> {
-//
-//            long registered = course.getRegistrations() == null
-//                    ? 0
-//                    : course.getRegistrations().size();
-//
-//            long available = course.getCapacity() - registered;
-//
-//            return new CourseScheduleReportDto(
-//                    course.getCourseDepartment().getCourseDepartmentId(),
-//                    course.getCourseDepartment().getCourseDepartmentName(),
-//                    course.getCourseName(),
-//                    course.getCourseCode(),
-//                    course.getCapacity(),
-//                    registered,
-//                    available
-//            );
-//
-//        }).toList();
-//    }
-
-
-
-
-
-//    private Map<String, List<CourseScheduleReportDto>> groupByDepartment(Integer departmentId) {
-//
-//        return getReportData().stream()
-//
-//                .filter(dto -> departmentId == null ||
-//                        dto.getDepartmentId().equals(departmentId)
-//                )
-//
-//                .collect(Collectors.groupingBy(
-//                        CourseScheduleReportDto::getDepartmentName
-//                ));
-//    }
-
-
-//    public byte[] generateCourseSchedulePdf() {
-//
-//        try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-//
-//            Document document = new Document();
-//            PdfWriter.getInstance(document, out);
-//
-//            document.open();
-//
-//            // Title
-//            document.add(new Paragraph("Course Schedule Report"));
-//            document.add(new Paragraph(" "));
-//
-//            Map<String, List<Course>> grouped = getGroupedCourses();
-//
-//            for (Map.Entry<String, List<Course>> entry : grouped.entrySet()) {
-//
-//                // Department Header
-//                document.add(new Paragraph("Department: " + entry.getKey()));
-//                document.add(new Paragraph(" "));
-//
-//                PdfPTable table = new PdfPTable(3);
-//                table.setWidthPercentage(100);
-//
-//                // Header
-//                table.addCell("Course Name");
-//                table.addCell("Code");
-//                table.addCell("Capacity");
-//
-//                // Data
-//                for (Course c : entry.getValue()) {
-//                    table.addCell(c.getCourseName());
-//                    table.addCell(c.getCourseCode() != null ? c.getCourseCode() : "-");
-//                    table.addCell(String.valueOf(c.getCapacity()));
-//                }
-//
-//                document.add(table);
-//                document.add(new Paragraph(" "));
-//            }
-//
-//            document.close();
-//            return out.toByteArray();
-//
-//        } catch (Exception e) {
-//            throw new RuntimeException("Error generating PDF", e);
-//        }
-//    }
-
-//    public List<CourseScheduleReportDto> getReportData() {
-//
-//        List<Object[]> rows = courseRepository.getCourseScheduleData();
-//
-//        return rows.stream().map(r -> {
-//
-//            Integer capacity = (Integer) r[3];
-//            Long registered = (Long) r[5];
-//            Long available = capacity - registered;
-//
-//            return CourseScheduleReportDto.builder()
-//                    .courseName((String) r[1])
-//                    .courseCode((String) r[2])
-//                    .capacity(capacity)
-//                    .registeredCount(registered)
-//                    .availableSeats(available)
-//                    .departmentName((String) r[4])
-//                    .build();
-//
-//        }).toList();
-//    }
-//    public Map<String, List<Course>> getGroupedCourses() {
-//
-//        List<Course> courses = courseRepository.findAll();
-//
-//        return courses.stream()
-//                .collect(Collectors.groupingBy(
-//                        c -> c.getCourseDepartment().getCourseDepartmentName()
-//                ));
-//    }
 
 
 

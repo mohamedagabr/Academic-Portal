@@ -1,4 +1,5 @@
 package com.academic.portal.entity;
+
 import com.academic.portal.enums.CourseRegistrationStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -7,53 +8,59 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "course_registrations", schema = "dbo",
+@Table(name = "COURSE_REGISTRATIONS",
         uniqueConstraints = {
-                @UniqueConstraint(name = "uq_student_course",
-                        columnNames = {"student_id", "course_id"})
+                @UniqueConstraint(name = "UQ_STUDENT_COURSE",
+                        columnNames = {"STUDENT_ID", "COURSE_ID"})
         },
         indexes = {
-                @Index(name = "idx_reg_student", columnList = "student_id"),
-                @Index(name = "idx_reg_course", columnList = "course_id")
+                @Index(name = "IDX_REG_STUDENT", columnList = "STUDENT_ID"),
+                @Index(name = "IDX_REG_COURSE", columnList = "COURSE_ID")
         })
-
 public class CourseRegistration {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "course_reg_seq")
+    @SequenceGenerator(
+            name = "course_reg_seq",
+            sequenceName = "SEQ_COURSE_REGISTRATIONS",
+            allocationSize = 1
+    )
+    @Column(name = "ID")
     private Integer id;
 
-    @Column(name = "registration_status", nullable = false)
+    @Column(name = "REGISTRATION_STATUS", nullable = false)
     private CourseRegistrationStatus registrationStatus;
 
-    @Column(name = "created_at",nullable = false)
     @CreationTimestamp
-    private LocalDateTime createdAt ;
+    @Column(name = "CREATED_AT", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
-    @Column(name = "last_updated_at" ,nullable = false)
     @UpdateTimestamp
-    private LocalDateTime lastUpdatedAt ;
+    @Column(name = "LAST_UPDATED_AT")
+    private LocalDateTime lastUpdatedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id", nullable = false,
-            foreignKey = @ForeignKey(name = "fk_registrations_student"))
+    @JoinColumn(name = "STUDENT_ID", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_REGISTRATIONS_STUDENT"))
+    @ToString.Exclude
     private Student student;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id", nullable = false,
-            foreignKey = @ForeignKey(name = "fk_registrations_course"))
+    @JoinColumn(name = "COURSE_ID", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_REGISTRATIONS_COURSE"))
+    @ToString.Exclude
     private Course course;
-
 
     @PrePersist
     private void prePersist() {
-        if(registrationStatus == null) registrationStatus = CourseRegistrationStatus.REGISTERED;
+        if (registrationStatus == null)
+            registrationStatus = CourseRegistrationStatus.REGISTERED;
     }
-
-
 }

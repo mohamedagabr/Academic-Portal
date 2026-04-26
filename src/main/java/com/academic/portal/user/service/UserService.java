@@ -53,8 +53,6 @@ public class UserService {
 
         createUserValidation(request);
 
-        String rawPassword = request.getPassword();
-
         User user = User.builder()
 
                 .username(request.getUsername())
@@ -90,7 +88,7 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new BusinessException(ErrorCode.USER_NOT_FOUND));
 
-        updateUserValidation(request);
+        updateUserValidation(request , user);
 
         user.setUsername(request.getUsername());
         user.setFirstName(request.getFirstName());
@@ -137,21 +135,27 @@ public class UserService {
         }
     }
 
-    private void updateUserValidation(UserRequestDto dto) {
+    private void updateUserValidation(UserRequestDto dto , User existing) {
 
-        if (!dto.getUsername().equals(dto.getUsername())
-                && userRepository.existsByUsername(dto.getUsername())) {
-            throw new BusinessException(ErrorCode.USERNAME_ALREADY_EXISTS);
+        if(dto.getUsername() != null &&
+                !dto.getUsername().equals(existing.getUsername()) &&
+                userRepository.existsByUsername(dto.getUsername())){
+           throw new BusinessException(ErrorCode.USERNAME_ALREADY_EXISTS);
+
         }
 
-        if (!dto.getEmail().equals(dto.getEmail())
-                && userRepository.existsByEmail(dto.getEmail())) {
+        if(dto.getEmail() != null &&
+                !dto.getEmail().equals(existing.getEmail()) &&
+                userRepository.existsByEmail(dto.getEmail())){
             throw new BusinessException(ErrorCode.EMAIL_ALREADY_EXISTS);
+
         }
 
-        if (!dto.getMobileNumber().equals(dto.getMobileNumber())
-                && userRepository.existsByMobileNumber(dto.getMobileNumber())) {
+        if(dto.getMobileNumber() != null &&
+                !dto.getMobileNumber().equals(existing.getMobileNumber()) &&
+                userRepository.existsByMobileNumber(dto.getEmail())){
             throw new BusinessException(ErrorCode.MOBILE_NUMBER_ALREADY_EXISTS);
+
         }
 
 

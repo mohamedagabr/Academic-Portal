@@ -5,29 +5,18 @@ import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
 public interface CourseRepository extends JpaRepository<Course, Integer>{
 
 
-    @EntityGraph(attributePaths = {
-            "courseDepartment"
-    })
-    List<Course> findAll();
 
-
-
-//    @Query("""
-//    SELECT c.courseId, c.courseName, c.courseCode,
-//         c.capacity,c.courseDepartment.courseDepartmentName,
-//         COUNT(r.id)
-//    FROM Course c
-//    LEFT JOIN CourseRegistration r ON r.course.courseId = c.courseId
-//    GROUP BY c.courseId, c.courseName, c.courseCode,
-//         c.capacity, c.courseDepartment.courseDepartmentName
-//    """)
-//    List<Object[]> getCourseScheduleData();
+    @Query("""
+        SELECT c FROM Course c
+                 JOIN FETCH c.courseDepartment
+        """)
+    List<Course> findAllWithDepartment();
 
 
     @Query("""
@@ -48,7 +37,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer>{
         c.courseCode,
         c.capacity,
         c.courseDepartment.courseDepartmentName
-     """)
+    """)
     List<Object[]> getCourseScheduleData(@Param("departmentId") Integer departmentId);
 
 

@@ -46,28 +46,28 @@ public class AuthController {
         );
     }
 
-//    @PostMapping("/refresh")
-//    public ResponseEntity<ApiResponse<AuthResponse>> refresh(
-//            @Valid @RequestBody RefreshTokenRequest request) {
-//
-//        return ResponseEntity.ok(
-//                ApiResponse.success(
-//                        ResponseCode.ACCESS_TOKEN_REFRESHED,
-//                        authService.refresh(request.getRefreshToken())
-//                )
-//        );
-//    }
-//
-//
-//    @PostMapping("/logout")
-//    public ResponseEntity<ApiResponse<String>> logout(HttpServletRequest request) {
-//
-//        authService.logout(request);
-//
-//        return ResponseEntity.ok(
-//                ApiResponse.success(ResponseCode.LOGOUT_SUCCESS, null)
-//        );
-//    }
+    @PostMapping("/refresh")
+    public ResponseEntity<ApiResponse<AuthResponse>> refresh(
+            @Valid @RequestBody RefreshTokenRequest request) {
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        ResponseCode.ACCESS_TOKEN_REFRESHED,
+                        authService.refresh(request.getRefreshToken())
+                )
+        );
+    }
+
+
+    @PostMapping("/logout")
+    public ResponseEntity<ApiResponse<String>> logout(HttpServletRequest request) {
+
+        authService.logout(request);
+
+        return ResponseEntity.ok(
+                ApiResponse.success(ResponseCode.LOGOUT_SUCCESS, null)
+        );
+    }
 
 
 

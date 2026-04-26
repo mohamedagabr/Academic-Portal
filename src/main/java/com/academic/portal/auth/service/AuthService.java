@@ -20,6 +20,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.Date;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -29,7 +32,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final RefreshTokenService refreshTokenService;
-    private final CacheManager cacheManager;
+
 
     public AuthResponse register(AuthRequest request) {
 
@@ -49,8 +52,10 @@ public class AuthService {
 
         String accessToken = jwtService.generateAccessToken(user);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
-
+        System.out.println("JAVA NOW: " + Instant.now());
+        System.out.println("JAVA DATE: " + new Date());
         return buildAuthResponse(user, accessToken, refreshToken.getToken());
+
     }
 
     public AuthResponse login(LoginDto dto) {
@@ -75,12 +80,6 @@ public class AuthService {
 
         String accessToken = jwtService.generateAccessToken(user);
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(user);
-
-
-        var cache = cacheManager.getCache("sessions");
-        if (cache != null) {
-            cache.put(user.getUsername(), System.currentTimeMillis());
-        }
 
         return buildAuthResponse(user, accessToken, refreshToken.getToken());
     }
@@ -115,11 +114,6 @@ public class AuthService {
         String token = authHeader.substring(7);
         String username = jwtService.extractUsername(token);
 
-        // remove session
-        var cache = cacheManager.getCache("sessions");
-        if (cache != null) {
-            cache.evict(username);
-        }
         // remove refresh tokens
         refreshTokenService.deleteByUsername(username);
     }
