@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -28,7 +29,7 @@ public class RefreshToken {
     private String token;
 
     @Column(name = "EXPIRY_DATE", nullable = false)
-    private Instant expiryDate;
+    private LocalDateTime expiryDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID", nullable = false,

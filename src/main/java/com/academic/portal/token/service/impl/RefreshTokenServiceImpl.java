@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
@@ -37,8 +39,12 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
         RefreshToken refreshToken = RefreshToken.builder()
                 .user(user)
                 .token(refreshJwt)
-//                .expiryDate(Instant.now().plus(10, ChronoUnit.MINUTES))
-                .expiryDate(jwtService.extractExpiration(refreshJwt).toInstant())
+                .expiryDate(
+                        jwtService.extractExpiration(refreshJwt)
+                                .toInstant()
+                                .atZone(ZoneId.systemDefault())
+                                .toLocalDateTime()
+                )
                 .build();
         user.getRefreshTokens().clear();
         user.getRefreshTokens().add(refreshToken);
@@ -50,7 +56,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     public boolean validateRefreshToken(String token) {
         RefreshToken refreshToken = refreshTokenRepository.findByToken(token)
                 .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_REFRESH_TOKEN));
-        if (refreshToken.getExpiryDate().isBefore(Instant.now())) {
+        if (refreshToken.getExpiryDate().isBefore(LocalDateTime.now())) {
             refreshTokenRepository.delete(refreshToken);
             throw new BusinessException(ErrorCode.REFRESH_TOKEN_EXPIRED);
         }

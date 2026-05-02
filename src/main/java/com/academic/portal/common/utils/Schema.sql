@@ -71,7 +71,7 @@ CREATE  TABLE ACADEMIC_PORTAL.REFRESH_TOKENS (
                                                  ID                   NUMBER   NOT NULL,
                                                  USER_ID              NUMBER   NOT NULL,
                                                  TOKEN                VARCHAR2(500)   NOT NULL,
-                                                 EXPIRY_DATE          TIMESTAMP WITH TIME ZONE   NOT NULL,
+                                                 EXPIRY_DATE          TIMESTAMP(6)   ,  NOT NULL,
                                                  CONSTRAINT PK_REFRESH_TOKENS PRIMARY KEY ( ID ) ,
                                                  CONSTRAINT UQ_REFRESH_TOKENS_TOKEN UNIQUE ( TOKEN )
 );

@@ -1,4 +1,4 @@
-# Performance Management System API - Academic Portal
+# Academic Portal System API 
 ## Spring Boot + Oracle DB
 
 ## Tech Stack
@@ -35,10 +35,9 @@ EPIC 1 — Project Setup & Infrastructure
             Initialize Spring Boot project
             Configure Maven dependencies
             Setup base package structure
-    US-1.2 — Database & Liquibase Setup
-            Oracle DB connection setup
-            Schema initialization
-            Base entity creation
+    US-1.2 — Database - Oracle DB connection setup
+             Schema initialization
+             Base entity creation
     US-1.3 — Security Integration (JWT)
             JWT generation & validation
             Access & Refresh token flow
